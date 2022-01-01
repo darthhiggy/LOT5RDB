@@ -1,0 +1,66 @@
+﻿@page
+@model LOT5RDB.Pages.Equipment.ListModel
+@{
+}
+
+<h1>Equipment</h1>
+
+<h2>Weapons</h2>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="WeaponSearchTerm" />
+            <span class="input-group-append">
+                <button class="btn btn-outline-dark">
+                    Search
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>Skill</td>
+        <td>Range</td>
+        <td>DMG</td>
+        <td>DLS</td>
+        <td>Grips</td>
+        <td>Qaulities</td>
+        <td>Rarity</td>
+        <td>Price</td>
+    </tr>
+    @foreach(var weapon in Model.Weapons)
+    {
+        <tr>
+            <td>@weapon.Name</td>
+            <td>@weapon.Skill</td>
+            <td>@weapon.Range</td>
+            <td>@weapon.BaseDamage</td>
+            <td>@weapon.Deadliness</td>
+            <td>
+                @for(int i = 0; i < @weapon.Grips.Count; i++)
+                {
+                    @if(i > 0)
+                    {
+                        @Html.Raw("<br />")
+                    }
+                    @weapon.Grips[i].ToString()
+                }
+            </td>
+            <td>
+                @for(int i = 0; i < weapon.Qualities.Count; i++)
+                {
+                    @if(i > 0)
+                    {
+                        @Html.Raw(", ")
+                    }
+                    @weapon.Qualities[i].Name
+                }
+            </td>
+            <td>@weapon.Rarity</td>
+            <td>@weapon.Price</td>
+        </tr>
+    }
+</table>
