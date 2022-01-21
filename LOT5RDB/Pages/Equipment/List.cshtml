@@ -19,48 +19,8 @@
     </div>
 </form>
 
-<table class="table">
-    <tr>
-        <td>Name</td>
-        <td>Skill</td>
-        <td>Range</td>
-        <td>DMG</td>
-        <td>DLS</td>
-        <td>Grips</td>
-        <td>Qaulities</td>
-        <td>Rarity</td>
-        <td>Price</td>
-    </tr>
-    @foreach(var weapon in Model.Weapons)
-    {
-        <tr>
-            <td>@weapon.Name</td>
-            <td>@weapon.Skill</td>
-            <td>@weapon.Range</td>
-            <td>@weapon.BaseDamage</td>
-            <td>@weapon.Deadliness</td>
-            <td>
-                @for(int i = 0; i < @weapon.Grips.Count; i++)
-                {
-                    @if(i > 0)
-                    {
-                        @Html.Raw("<br />")
-                    }
-                    @weapon.Grips[i].ToString()
-                }
-            </td>
-            <td>
-                @for(int i = 0; i < weapon.Qualities.Count; i++)
-                {
-                    @if(i > 0)
-                    {
-                        @Html.Raw(", ")
-                    }
-                    @weapon.Qualities[i].Name
-                }
-            </td>
-            <td>@weapon.Rarity</td>
-            <td>@weapon.Price</td>
-        </tr>
-    }
-</table>
+@foreach(var weapon in Model.Weapons)
+{
+    <partial name="Views/WeaponCard" model="weapon"/>
+    <br />
+}

@@ -8,8 +8,9 @@ namespace LOT5RDB.Core.Equipment.DataObjects
 {
     public enum GripTypes
     {
-        OneHanded,
-        TwoHanded,
-        Arts
+        Unknown = 0,
+        OneHanded = 1,
+        TwoHanded = 2,
+        Arts = 3
     }
 }

@@ -5,23 +5,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LOT5RDB.Core.Skills.DataObjects;
 
 namespace LOT5RDB.Core.Equipment.DataObjects
 {
     public class Weapon
     {
-        public int Id { get; set; }
+        public Weapon()
+        {
+            
+        }
+
+        public int Id { get; set; } = 0;
         public WeaponCategories Category { get; set; }
-        public string Name { get; set; }
-        public string Skill { get; set; }
-        public Ranges Range { get; set; } 
-        public int BaseDamage { get; set; }
-        public int Deadliness { get; set; }
+        public string Name { get; set; } = "";
+        public int SkillId { get; set; } = 0;
+        public Skill Skill { get; set; } = new Skill();
+        public Ranges Range { get; set; } = new Ranges(0, 0);
+        public int BaseDamage { get; set; } = 0;
+        public int Deadliness { get; set; } = 0;
         public List<Grip> Grips { get; set; } = new List<Grip>();
-        public List<WeaponQuality> Qualities { get; set; } = new List<WeaponQuality>();
+        public List<ItemQuality> Qualities { get; set; } = new List<ItemQuality>();
         public int Rarity { get; set; }
-        public Price Price { get; set; }
-        public string Description { get; set; }
+        public Price Price { get; set; } = new Price(0);
+        public string Description { get; set; } = string.Empty;
 
     }
 }

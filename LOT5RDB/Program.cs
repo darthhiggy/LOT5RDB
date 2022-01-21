@@ -1,29 +1,42 @@
+using LOT5RDB;
 using LOT5RDB.Core.Equipment.DataObjects;
-using LOT5RDB.Data.Repository;
+using LOT5RDB.Data.DBContexts;
+using LOT5RDB.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+//todo: Generated code, using startup class to do all this per how I learned it. Will come back around to this to see if I ultimately like it better
+//var builder = WebApplication.CreateBuilder(args);
 
-var builder = WebApplication.CreateBuilder(args);
+//// Add services to the container.
+//builder.Services.AddDbContext<EquipmentDbContext>(options =>
+//{
+//    options.UseSqlServer(Configuration.GetConnectionString("LOT5RDB"));
+//})
+//builder.Services.AddScoped<IEquipmentRepository, SqlEquipmentRepo>();
+//builder.Services.AddRazorPages();
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IEquipmentRepository, InMemoryEquipmentRepo>();
 
-var app = builder.Build();
+//var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Error");
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
+
+//app.UseHttpsRedirection();
+//app.UseStaticFiles();
+
+//app.UseRouting();
+
+//app.UseAuthorization();
+
+//app.MapRazorPages();
+
+//app.Run();
+
+Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();
+    webBuilder.UseStartup<Startup>();
+}).Build().Run();

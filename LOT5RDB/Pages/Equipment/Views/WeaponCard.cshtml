@@ -1,0 +1,32 @@
+﻿@using LOT5RDB.Core
+@model LOT5RDB.Core.Equipment.DataObjects.Weapon
+
+<div class="card">
+    <div class="card-header">
+        <span>Name: @Model.Name</span>
+        <span>Skill: @Model.Skill</span>
+        <span>Range: @Model.Range</span>
+        <span>DMG: @Model.BaseDamage</span>
+        <span>DLS: @Model.Deadliness</span>
+        <tspand>Grips: @for(int i = 0; i < @Model.Grips.Count; i++)
+                       {
+                           @if(i > 0)
+                           {
+                               @Html.Raw("<br />")
+                           }
+                           @Model.Grips[i].ToString()
+                       }</tspand>
+        <span>Qualities:  @for(int i = 0; i < @Model.Qualities.Count; i++)
+                          {
+                              @if(i > 0)
+                              {
+                                  @Html.Raw(", ")
+                              }
+                              @Model.Qualities[i].Name
+                          }
+
+        </span>
+        <span>Rarity: @Model.Rarity</span>
+        <span>Price: @Model.Price</span>
+    </div>
+</div>

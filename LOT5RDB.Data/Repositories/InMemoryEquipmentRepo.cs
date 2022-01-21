@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LOT5RDB.Core.Skills.DataObjects;
 
-namespace LOT5RDB.Data.Repository
+namespace LOT5RDB.Data.Repositories
 {
     public class InMemoryEquipmentRepo : IEquipmentRepository
     {
@@ -22,13 +23,13 @@ namespace LOT5RDB.Data.Repository
                     Id = 1,
                     Category = WeaponCategories.Sword,
                     Name = "Bokken",
-                    Skill = "Melee",
+                    Skill = new Skill(0),
                     BaseDamage = 3,
                     Deadliness = 3,
                     Range = new Core.Shared.DataObjects.Ranges(1,1),
                     Grips = new List<Grip>{new Grip { GripType = GripTypes.OneHanded, Bonus = "-", ExtraDescription = ""}, new Grip { GripType = GripTypes.TwoHanded, Bonus = "Damage +2", ExtraDescription = ""} },
-                    Qualities = new List<WeaponQuality>{new WeaponQuality { Id = 1, Name = "Mundane", Description = "Description"} },
-                    Price = new Price {Bu = 1 },
+                    Qualities = new List<ItemQuality>{new ItemQuality { Id = 1, Name = "Mundane", Description = "Description"} },
+                    Price = new Price(10),
                     Rarity = 3,
                     Description = @"Bokken are swords carved of wood rather than forged
                                     of metal. Generally used as a training weapon, a bokken
@@ -41,13 +42,13 @@ namespace LOT5RDB.Data.Repository
                     Id = 2,
                     Category = WeaponCategories.Sword,
                     Name = "Chokutō",
-                    Skill = "Melee",
+                    Skill = new Skill(0),
                     BaseDamage = 4,
                     Deadliness = 5,
                     Range = new Core.Shared.DataObjects.Ranges(0, 1),
                     Grips = new List<Grip>{ new Grip { GripType= GripTypes.OneHanded, Bonus= "-", ExtraDescription =""} },
-                    Qualities = new List<WeaponQuality> { new WeaponQuality { Id = 2, Name = "Ceremonial", Description = "Description" }, new WeaponQuality { Id = 3, Name = "Razor-Edge", Description="Description"} },
-                    Price = new Price{Koku = 20},
+                    Qualities = new List<ItemQuality> { new ItemQuality { Id = 2, Name = "Ceremonial", Description = "Description" }, new ItemQuality { Id = 3, Name = "Razor-Edge", Description="Description"} },
+                    Price = new Price(2000),
                     Rarity = 7,
                     Description = @"The chokutō is an ancient design that predates the
                                     advent of the katana. Hung from a belt rather than tucked
@@ -93,7 +94,7 @@ namespace LOT5RDB.Data.Repository
 
         public Weapon GetWeaponById(int id)
         {
-            return Weapons.FirstOrDefault(w => w.Id == id);
+            return Weapons.FirstOrDefault(w => w.Id == id) ?? new Weapon();
         }
 
         public List<Weapon> SearchWeaponByName(string searchString)
@@ -108,13 +109,16 @@ namespace LOT5RDB.Data.Repository
 
         public Weapon UpdateWeapon(Weapon weapon)
         {
-            var obj = Weapons.FirstOrDefault(w => w.Id == weapon.Id);
-            if(obj == null)
-            {
-                obj = weapon;
-            }
+            var obj = Weapons.FirstOrDefault(w => w.Id == weapon.Id) ?? weapon;
 
-            return weapon;
+            obj = weapon;
+
+            return obj;
+        }
+
+        public int Commit()
+        {
+            return 0;
         }
     }
 }
