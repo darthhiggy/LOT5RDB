@@ -879,7 +879,7 @@ namespace LOT5RDB.Data.Configuration
             },
             
             {
-                7, "Forbidden", Description =
+                7, "Forbidden", 
                     @"Rokugani laws are unforgiving, and many things are contraband.
                                                                                 This includes many illicit substances, heretical
                                                                                 art or literature, and foreign items that have not been
