@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LOT5RDB.Core.Skills.DataObjects;
+﻿using LOT5RD.Skills.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LOT5RDB.Data.Configuration.Skills
 {
-    public class SkillGroupConfiguration : IEntityTypeConfiguration<SkillGroup>
+    public class SkillGroupConfiguration : IEntityTypeConfiguration<SkillGroupModel>
     {
-        public void Configure(EntityTypeBuilder<SkillGroup> builder)
+        public void Configure(EntityTypeBuilder<SkillGroupModel> builder)
         {
             builder.ToTable("SkillGroups", schema: "Skills");
         }

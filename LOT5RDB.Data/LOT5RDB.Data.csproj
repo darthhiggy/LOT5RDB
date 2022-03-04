@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LOT5RD.Equipment\LOT5RD.Equipment.csproj" />
     <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj" />
   </ItemGroup>
 

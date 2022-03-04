@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LOT5RDB.Core.Equipment.DataObjects;
+﻿using LOT5RD.Equipment.Models;
 using LOT5RDB.Core.Shared.DataObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LOT5RDB.Data.Configuration.Equipment
 {
-    public class WeaponConfiguration : IEntityTypeConfiguration<Weapon>
+    public class WeaponConfiguration : IEntityTypeConfiguration<WeaponModel>
 
     {
-        public void Configure(EntityTypeBuilder<Weapon> builder)
+        public void Configure(EntityTypeBuilder<WeaponModel> builder)
         {
             builder.ToTable("Weapons", schema: "Equipment");
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LOT5RDB.Core.Equipment.DataObjects;
-using LOT5RDB.Core.Skills.DataObjects;
+﻿using LOT5RD.Skills.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LOT5RDB.Data.Configuration
@@ -16,8 +10,8 @@ namespace LOT5RDB.Data.Configuration
             var skillGroups = DataSeeds.GetSkillGroups();
             var skills = DataSeeds.GetSkills();
 
-            modelBuilder.Entity<SkillGroup>(s => s.HasData(skillGroups));
-            modelBuilder.Entity<Skill>(s => s.HasData(skills));
+            modelBuilder.Entity<SkillGroupModel>(s => s.HasData(skillGroups));
+            modelBuilder.Entity<SkillModel>(s => s.HasData(skills));
         }
 
         
