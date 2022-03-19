@@ -1,8 +1,4 @@
 using LOT5RDB;
-using LOT5RDB.Core.Equipment.DataObjects;
-using LOT5RDB.Data.DBContexts;
-using LOT5RDB.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
 //todo: Generated code, using startup class to do all this per how I learned it. Will come back around to this to see if I ultimately like it better
 //var builder = WebApplication.CreateBuilder(args);
 

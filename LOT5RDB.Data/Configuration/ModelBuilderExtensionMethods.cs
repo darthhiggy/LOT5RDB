@@ -1,19 +1,16 @@
-﻿using LOT5RD.Skills.Models;
+﻿using LOT5RDB.Data.Configuration.Equipment;
+using LOT5RDB.Data.Configuration.Skills;
 using Microsoft.EntityFrameworkCore;
 
 namespace LOT5RDB.Data.Configuration
 {
     public static class ModelBuilderExtensionMethods 
     {
-        public static void SeedData(this ModelBuilder modelBuilder)
-        {
-            var skillGroups = DataSeeds.GetSkillGroups();
-            var skills = DataSeeds.GetSkills();
-
-            modelBuilder.Entity<SkillGroupModel>(s => s.HasData(skillGroups));
-            modelBuilder.Entity<SkillModel>(s => s.HasData(skills));
-        }
-
-        
+        public static ModelBuilder GetSqlDataSeeds(this ModelBuilder modelBuilder) 
+            => modelBuilder.SqlSkillSeedData()
+                .SqlEquipmentSeedData();
+        public static ModelBuilder GetNoSqlDataSeeds(this ModelBuilder modelBuilder) 
+            => modelBuilder.NoSqlSkillSeedData()
+                .NoSqlEquipmentSeedData();
     }
 }

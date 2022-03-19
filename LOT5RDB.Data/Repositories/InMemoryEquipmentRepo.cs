@@ -6,41 +6,31 @@ namespace LOT5RDB.Data.Repositories
 {
     public class InMemoryEquipmentRepo : IEquipmentRepository
     {
-        public List<WeaponModel> Weapons { get; set; } = new List<WeaponModel>();
+        private readonly DataSeeds _seedData;
 
         public InMemoryEquipmentRepo()
         {
-            var seedData = new DataSeeds();
-            Weapons = seedData.
+            _seedData = new DataSeeds();
         }
 
-        public int Commit()
-        {
-            throw new NotImplementedException();
-        }
-        public List<WeaponModel> GetAllWeapons()
-        {
-            throw new NotImplementedException();
-        }
+        public int SaveChanges() => 0;
+        public List<WeaponModel> GetAllWeapons() => _seedData.GetWeapons();
         public List<WeaponModel> SearchWeaponByName(string searchString)
-        {
-            throw new NotImplementedException();
-        }
-        public WeaponModel GetWeaponById(int id)
-        {
-            throw new NotImplementedException();
-        }
+            => _seedData.GetWeapons().Where(w => w.Name.ToLower().StartsWith(searchString.ToLower())).ToList();
+        public WeaponModel GetWeaponById(int id) 
+            => _seedData.GetWeapons().First(w => w.Id == id) 
+               ?? new WeaponModel();
         public WeaponModel AddWeapon(WeaponModel weapon)
         {
-            throw new NotImplementedException();
+            return weapon;
         }
         public WeaponModel UpdateWeapon(WeaponModel weapon)
         {
-            throw new NotImplementedException();
+            return weapon;
         }
         public int DeleteWeapon(int id)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

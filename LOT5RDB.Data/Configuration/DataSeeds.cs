@@ -93,22 +93,984 @@ namespace LOT5RDB.Data.Configuration
                 }
             },
             {
-                "Jian",
+                "Katana",
                 new LongText()
                 {
-                    Id = Guid.Parse("4d19ac97-1238-47af-ab8a-2eaae450816e"),
-                    Text = @"Known primarily as a duelist’s weapon, the jian is an
-                            ancient and elegant sword that has changed very little
-                            in design since Rokugan’s misty past yet remains deadly
-                            to this day. About the same size as a chokutō, a typical
-                            jian has a straight, double-edged blade that tapers
-                            to a point; a small, thick, horizontal hand guard; and a
-                            heavy pommel with a tassel. Only slightly more common
-                            than the chokutō, it is used by some Mirumoto,
-                            Kitsuki, or Shiba swordmasters who favor its versatility."
+                    Id = Guid.Parse("8761953C-0D1F-4EDC-8860-AA949C22C39C"),
+                    Text = @"As much a work of art as it is a weapon, the katana is
+                            perhaps the most revered weapon in Rokugan. It has an
+                            elegant, slightly curved blade between three and four
+                            feet long, made of steel that is specially folded during
+                            its creation. This unique forging style ensures that the
+                            inner part of the blade remains springy and soft while
+                            the outside is as hard as tempered steel. Each sword
+                            likely has a history and legacy, and it is a constant
+                            reminder of the weight that destiny has placed upon
+                            its bearer’s shoulders as a samurai of Rokugan"
                 }
-            }, 
-        }
+            },
+            {
+                "Nodachi",
+                new LongText()
+                {
+                    Id = Guid.Parse("64DC8D84-22D1-4AEB-BDCE-3EFCD4FD839A"),
+                    Text = @"Larger than katana, nodachi are long and lethal swords
+                            more at home on the battlefield than in a city or at
+                            court. Roughly six feet long, these blades are relatively
+                            rare due to the skill and strength needed to wield them
+                            effectively. There are those who prize the raw force of
+                            these blades, however, such as members of the Matsu
+                            school. Too large to be worn at the waist, nodachi are
+                            normally worn on the back and drawn over the shoulder
+                            or even carried into battle by a samurai’s attendant."
+                }
+            },
+            {
+                "Zanbatō",
+                new LongText()
+                {
+                    Id = Guid.Parse("725D0771-5EF1-4E96-8F4D-65630EE5094E"),
+                    Text = @"Larger even than mighty nodachi, zanbatō are swords
+                            with the reach of a spear. Zanbatō have a long, thick,
+                            katana-like blade roughly six feet in length attached
+                            to a two-handed hilt. They are dedicated anticavalry
+                            weapons—indeed, their name means “horse-chopping
+                            sword.” The Matsu school is famous for adopting them
+                            into the curriculum after their ill-fated encounter with
+                            the Utaku cavalry at the Battle of Plum Blossom Pass."
+                }
+            },
+            {
+                "Masakari",
+                new LongText()
+                {
+                    Id = Guid.Parse("CA8CD8C7-DE5A-4F41-9A91-5C2C9C75119A"),
+                    Text = @"Similar in size and shape to the humble hatchet, a masakari
+                            is a one-handed ax with a single-sided ax-head
+                            affixed to one end of a short wooden haft. Such axes
+                            are an ordinary sight among peasant militia and rōnin
+                            who cannot afford a more prestigious weapon."
+                }
+            },
+            {
+                "Ono",
+                new LongText()
+                {
+                    Id = Guid.Parse("EF557F8F-149D-4F10-8759-A1D6B7E6968B"),
+                    Text = @"The ono is a dedicated, two-handed military ax, a rarity
+                            on Rokugan’s battlefields, at least outside of Crab lands.
+                            The ono consists of a broad, deeply curved ax-head
+                            mounted to a haft nearly as tall as a human. Opposite
+                            the ax-head is normally either an ornate peen or a long
+                            spike, which can pierce armor or monstrous hide."
+                }
+            },
+            {
+                "Scimitar",
+                new LongText()
+                {
+                    Id = Guid.Parse("7BF856DD-DB5F-42FA-89CF-9C84DAC758D4"),
+                    Text = @"Perhaps the most common among foreign-designed
+                            swords found in Rokugan, scimitars were brought from
+                            the Burning Sands to the Emerald Empire by the Unicorn
+                            Clan. Often carried in place of the katana by those warriors,
+                            scimitars are heavy swords with a long, broad, curving
+                            blade. They possess a deadly cutting edge thanks to
+                            the extra surface area provided by their curvature."
+                }
+            },
+            {
+                "Wakizashi",
+                new LongText()
+                {
+                    Id = Guid.Parse("272AAED4-E935-449B-BEC0-A1F307D0DBFD"),
+                    Text = @"Whereas the katana represents a samurai’s status
+                            as a warrior, the wakizashi represents their place in
+                            Rokugan’s social order and strict caste system. The
+                            wakizashi is a small, katana-like sword usually two to
+                            three feet in length, with the same flexible blade and lethal
+                            edge. It is often made as part of a pair, with the same decorations
+                            as its matched katana. The wakizashi also fills
+                            another role: it clearly signals that its wearer is a samurai,
+                            and a person of honor who will make the ultimate sacrifice
+                            for their ideals and their master. It is the tool with
+                            which a samurai commits seppuku: ritual suicide, the last
+                            protest of an aggrieved and honorable samurai."
+                }
+            },
+            {
+                "Ōtsuchi",
+                new LongText()
+                {
+                    Id = Guid.Parse("309B89E0-272B-429A-AB76-CB976B3B3F88"),
+                    Text = @"The ōtsuchi is to the carpenter’s hammer what the ono
+                            is to the woodcutter’s ax: larger, deadlier, and obviously
+                            designed with lethal purpose. With a shaft roughly six
+                            feet long topped by a huge, barrel-shaped mallet head,
+                            it is built to breach doors and smash walls—but it also
+                            works quite well on monsters with rock-like hides, as the
+                            warriors of the Hida school often demonstrate."
+                }
+            },
+            {
+                "Club",
+                new LongText()
+                {
+                    Id = Guid.Parse("39AAB287-BEAF-40E4-A145-64B262A85888"),
+                    Text = @"The humble club is perhaps the oldest weapon in
+                            Rokugan—at least among humans. Often little more
+                            than a length of stout wood or shaped stone, a club
+                            can be fashioned with available materials by nearly
+                            anyone. While a club can certainly be used to kill,
+                            doing so takes some work on the part of the wielder."
+                }
+            },
+            {
+                "Hammer",
+                new LongText()
+                {
+                    Id = Guid.Parse("C6FBCB03-9201-4AA0-B63A-640C727950F6"),
+                    Text = @"The simple hammer is used for driving nails and spikes
+                            and for other construction work. Throughout most of
+                            Rokugan, the hammer is only occasionally used as a
+                            weapon—typically in brawls or spur of the moment
+                            skirmishes when no other weapon is available."
+                }
+            },
+            {
+                "Kiseru",
+                new LongText()
+                {
+                    Id = Guid.Parse("445ED817-F218-43CC-8160-24CFC7334E55"),
+                    Text = @"Kiseru are pipes used to smoke various herbs found
+                            throughout Rokugan. They consist of a metal mouthpiece
+                            and a metal bowl connected by a hollow wood
+                            or bamboo tube. Kiseru range in quality from a peasant’s
+                            rough-hewn pipe to a courtier or noble’s ivory-and-
+                            gold inlaid piece of art. Further, they can function
+                            as clandestine weapons. Since kiseru are not formally
+                            considered arms, it is easy to get them into places that
+                            forbid weapons."
+                }
+            },
+            {
+                "Tetsubō",
+                new LongText()
+                {
+                    Id = Guid.Parse("B62E8802-BAED-4B24-86D4-F95DFDD86C82"),
+                    Text = @"Long and narrow, a tetsubō can be as tall as a human
+                            and normally is constructed of iron or hardwood.
+                            Above its grip, a tetsubō is covered in steel, iron, or
+                            even jade spikes or studs that add to the weapon’s
+                            lethality and crush armor or plated carapace with ease."
+                }
+            },
+            {
+                "Jitte",
+                new LongText()
+                {
+                    Id = Guid.Parse("0403C313-C888-4165-BA3E-EA862F7A02E3"),
+                    Text = @"Typically just over a foot long, the jitte consists of a
+                            short steel or iron rod attached to a wooden handle.
+                            The rod tapers to a blunt point and has a single prong
+                            that extends from one side. This simple weapon is
+                            designed to disarm and subdue targets rather than to
+                            kill them. It is carried by law enforcement officers at all
+                            levels, from low-ranking town constables to high-ranking
+                            magistrates, as a symbol of their office."
+                }
+            },
+            {
+                "Knife",
+                new LongText()
+                {
+                    Id = Guid.Parse("1867197E-7356-4CAE-BCA8-3C4FF7364100"),
+                    Text = @"Knives come in a dizzying array of types and styles,
+                            from the familiar crudely constructed knife in a peasant’s
+                            kitchen to the deadly combat knives samurai take
+                            into battle. Those particularly designed for combat—
+                            like the aiguchi—are often equipped with small hand
+                            guards to make them more useful in the field"
+                }
+            },
+            {
+                "Nunchaku",
+                new LongText()
+                {
+                    Id = Guid.Parse("DC6F6362-FFB4-4875-8014-C2E83DC4BA64"),
+                    Text = @"Originally hailing from the Islands of Spice and Silk,
+                            nunchaku have been used in certain Rokugani martial
+                            arts schools for centuries. Adapted from a simple
+                            threshing tool, nunchaku consist of two wood or iron
+                            rods connected by a short length of chain or rope."
+                }
+            },
+            {
+                "Tessen",
+                new LongText()
+                {
+                    Id = Guid.Parse("4EF6E7B7-1045-4D4B-AFD0-0C394FCABF43"),
+                    Text = @"Carried by courtiers and military leaders alike, tessen
+                            are fans specially built for fighting. However, they are
+                            not commonly viewed as weapons, and can be openly
+                            carried even into formal court chambers or negotiations.
+                            Usually made of wood with steel tines, they generally
+                            serve as defensive weapons, but wielders can also use
+                            them to deliver clubbing blows or to reinforce a punch."
+                }
+            },
+            {
+                "Bisentō",
+                new LongText()
+                {
+                    Id = Guid.Parse("728A3BA3-343C-47CC-932F-5720AEED4831"),
+                    Text = @"The bisentō is a strange weapon not regularly seen on
+                            Rokugan’s battlefields. Essentially a scimitar with an
+                            extremely long hilt, the bisentō has a long, yari-like wooden
+                            shaft topped by a broad and heavy curved blade.
+                            Though it seems awkward and top-heavy, the bisentō is
+                            exceptionally dangerous in the right hands. The length
+                            of the shaft gives the wielder incredible leverage, allowing
+                            them to deliver great chopping blows that can slice
+                            a person in half or cleave through heavy armor. Typically
+                            seen among the more militant orders of monks, such as
+                            the Perfect Land Sect, the bisentō is sometimes used by
+                            heavy infantry units, like those of the Daidoji family."
+                }
+            },
+            {
+                "Bō",
+                new LongText()
+                {
+                    Id = Guid.Parse("6061E354-7151-4AD8-B8BC-C2FEA19F1CFD"),
+                    Text = @"The bō, a humble staff, is a versatile weapon found
+                            throughout Rokugan. Roughly six feet long and made
+                            from sturdy hardwood, it is carried by travelers who need
+                            both a walking stick and an inconspicuous weapon."
+                }
+            },
+            {
+                "Ji",
+                new LongText()
+                {
+                    Id = Guid.Parse("CA51E607-66BE-431C-851C-715DC1622262"),
+                    Text = @"Also known as the “dagger-spear,” the ji is a long
+                            polearm designed more for catching and controlling
+                            weapons than for direct attacks. Commonly used by
+                            the Dragon and Phoenix Clans, and a specialty of
+                            the Shiba Guardian School, the standard ji consists
+                            of a long wooden shaft topped by a hooked or crescent-
+                            shaped blade. Other ji have a head consisting of
+                            a single long, double-edged blade with one or two
+                            smaller crescent-shaped blades mounted to the sides."
+                }
+            },
+            {
+                "Naginata",
+                new LongText()
+                {
+                    Id = Guid.Parse("1FC3321F-45D2-4E8D-99C9-ABEF09C6F3D8"),
+                    Text = @"Most samurai’s preferred polearm, the naginata is highly
+                            regarded. It has a long, flexible shaft made of bamboo
+                            or springy wood with a large, lightweight, slightly
+                            curved blade at the top. A naginata’s blade is forged
+                            with the same ceremony and meticulous craftsmanship
+                            as a katana’s, and commands the same reverence as
+                            the daishō. It is carried in elite units such as the Heaven’s
+                            Wing Brotherhood and the Utaku Battle Maidens."
+                }
+            },
+            {
+                "Trident",
+                new LongText()
+                {
+                    Id = Guid.Parse("5B09B7F0-FAC3-4634-9480-93A8C3C65229"),
+                    Text = @"The trident is a long, triple-headed spear generally associated
+                            with fishermen and the sea. On land, the trident is a
+                            formidable polearm with exceptional reach that can pierce, trap,
+                            and control opponents."
+                }
+            },
+            {
+                "Yari",
+                new LongText()
+                {
+                    Id = Guid.Parse("63C1B2B5-9A91-402C-8598-135FE17EFF75"),
+                    Text = @"A long-shafted spear, the yari is one of the most common
+                            weapons in Rokugan. Between six and eight feet long, its
+                            shaft is made of hardwood and topped with a leaf-shaped
+                            spearhead. Since it is easy to make, the yari is a customary
+                            weapon of ashigaru, but also elite clan samurai such as the
+                            Daidoji heavy infantry."
+                }
+            },
+            {
+                "Daikyū",
+                new LongText()
+                {
+                    Id = Guid.Parse("EC0D878D-62DE-4138-9468-277D0AA95464"),
+                    Text = @"Daikyū are large composite bows designed to be fired
+                            from horseback. Conventionally around six feet long,
+                            these elegant weapons are constructed by gluing thin layers of wood, horn, leather,
+                            and sinew together. Daikyū differ from other bows in that they have an asymmetric shape. 
+                            Their grip is about two-thirds of the way from the top, making the
+                            top curve longer than the bottom. This allows the bows 
+                            to be fired easily from horseback in either direction.
+                            Each daikyū is made for a custom fit for a specific user."
+                }
+            },
+            {
+                "Shinjo Horsebow",
+                new LongText()
+                {
+                    Id = Guid.Parse("D60BDBBE-4B54-40D1-9288-5939090C042D"),
+                    Text = @"Among the Unicorn Clan’s many adopted weapons is a
+                            small, sturdy bow used by the nomadic peoples of the
+                            steppes far to the west. Called the Shinjo horsebow in
+                            Rokugan, this weapon is a compact bow designed to
+                            be fired from the back of a moving horse. It is a shortrange
+                            weapon intended for raiding and cavalry attacks."
+                }
+            },
+            {
+                "Yumi",
+                new LongText()
+                {
+                    Id = Guid.Parse("7A8FCFE8-6F94-4098-BA3B-B48B1FD9967D"),
+                    Text = @"The yumi is perhaps the most common bow used by
+                            Rokugani samurai. Similar to the daikyū, it is a long,
+                            graceful bow made from a composite of horn, sinew,
+                            leather, and wood. Smaller than the daikyū, but only
+                            just, the yumi has an asymmetric grip, general shape,
+                            and long-range killing power similar to those of its larger
+                            cousin. Where the daikyū is a cavalry bow, however,
+                            the yumi is designed to be fired while standing."
+                }
+            },
+            {
+                "Oyumi",
+                new LongText()
+                {
+                    Id = Guid.Parse("7A8FCFE8-6F94-4098-BA3B-B48B1FD9967D"),
+                    Text = @"Developed out of necessity to fight the deadly forces of
+                            the Shadowlands, this weapon consists of a recurve or
+                            traditional bow laid horizontally on a long, stout stock.
+                            Held to the shoulder, the oyumi is fired by squeezing
+                            a long lever on the bottom of the stock. It fires short,
+                            arrow-like projectiles called quarrels. Its existence is a
+                            matter of some consternation among the other clans,
+                            but the Crab maintain that its use—even in the hands
+                            of ashigaru and peasants in times of crisis—has been
+                            vital to the preservation of the Empire."
+                }
+            },
+            {
+                "Blowgun",
+                new LongText()
+                {
+                    Id = Guid.Parse("1D68E56A-6542-4CFF-AFC7-6807C319A126"),
+                    Text = @"Made from a length of hollow bamboo or river reed,
+                            the blowgun is one of the simplest weapons that ninja
+                            use in their work. The blowgun’s primary use is as
+                            a ranged weapon, usually to deliver poison (see the
+                            Poisoned Weapons sidebar, page 244). In addition
+                            to darts, the blowgun can also be loaded with sand,
+                            dust, or other powders to blind or disorient foes, and it
+                            can even serve to let its user breathe while underwater."
+                }
+            },
+            {
+                "Kama",
+                new LongText()
+                {
+                    Id = Guid.Parse("BA0B15CF-5F31-4EA9-9DDF-5AF0963A62A9"),
+                    Text = @"The kama is another weapon adapted from an agricultural
+                            implement: in this case, a standard sickle used for
+                            harvesting rice. It consists of a short, roughly foot-long
+                            wooden haft topped by a long, curved sickle blade.
+                            Kama are often used in pairs, sometimes linked at the
+                            handles by a length of chain."
+                }
+            },
+            {
+                "Kusari-Gama",
+                new LongText()
+                {
+                    Id = Guid.Parse("9B5AE25B-49E3-4F8B-BC67-9645B835ACA7"),
+                    Text = @"Extremely versatile and deadly, the kusari-gama is one of
+                            the more difficult ninja weapons to master. It is a hybrid
+                            weapon consisting of a long-hafted kama with a lengthy
+                            chain attached to either the back of the blade or the
+                            bottom of the haft. A heavy iron weight called a fundo
+                            is mounted at the end of the chain. In combat, a wielder
+                            typically spins the chain over their head with one hand
+                            while holding the kama in the other. They whip the chain
+                            forward, entangling an opponent’s weapon or limbs, then
+                            rush in for the killing blow with the kama. A wielder can
+                            also attack with the weighted end of the chain, striking
+                            opponents at range and keeping them at bay."
+                }
+            },
+            {
+                "Shuriken",
+                new LongText()
+                {
+                    Id = Guid.Parse("9B5AE25B-49E3-4F8B-BC67-9645B835ACA7"),
+                    Text = @"Favored by shinobi, shuriken are small metal discs with
+                            a sharpened edge that come in a dizzying array of sizes
+                            and styles. They are designed mainly to distract, but
+                            shuriken can also be coated with toxins for lethality,
+                            and any cutting edge can kill if used properly."
+                }
+            }
+        };
+
+        public List<WeaponModel> GetWeapons() => new List<WeaponModel>()
+        {
+            new WeaponModel()
+            {
+                Id = 1,
+                Name = "Bokken",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 3,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 1 or 7).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower().StartsWith("mundane")).ToList(),
+                Rarity = 3,
+                Price = new Price(10),
+                DescriptionId = GetWeaponDescriptions()["Bokken"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 2,
+                Name = "Chokutō",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 4,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
+                Rarity = 7,
+                Price = new Price(2000),
+                DescriptionId = GetWeaponDescriptions()["Chokutō"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 3,
+                Name = "Dao",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 4,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Qualities = new List<ItemQualityModel>(),
+                Rarity = 6,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Dao"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 4,
+                Name = "Gao",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 4,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower().Equals("snaring")).ToList(),
+                Rarity = 7,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Gao"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 5,
+                Name = "Jian",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 4,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 1 or 8).ToList(),
+                Qualities = GetItemQualities().ToList(),
+                Rarity = 7,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Jian"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 6,
+                Name = "Katana",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 4,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
+                Rarity = 7,
+                Price = new Price(2000),
+                DescriptionId = GetWeaponDescriptions()["Katana"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 7,
+                Name = "Nodachi",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,2),
+                BaseDamage = 5,
+                Deadliness = 6,
+                Grips = GetGrips().Where(g => g.Id == 5).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
+                Rarity = 8,
+                Price = new Price(2000),
+                DescriptionId = GetWeaponDescriptions()["Nodachi"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 9,
+                Name = "Scimitar",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 4,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "durable" or "razor-edged").ToList(),
+                Rarity = 8,
+                Price = new Price(2000),
+                DescriptionId = GetWeaponDescriptions()["Scimitar"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 10,
+                Name = "Wakizashi",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 3,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
+                Rarity = 7,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Wakizashi"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 11,
+                Name = "Zanbatō",
+                Category = WeaponCategories.Sword,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,2),
+                BaseDamage = 6,
+                Deadliness = 7,
+                Grips = GetGrips().Where(g => g.Id == 5).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "cumbersome" or "wargear").ToList(),
+                Rarity = 8,
+                Price = new Price(4000),
+                DescriptionId = GetWeaponDescriptions()["Zanbatō"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 12,
+                Name = "Masakari",
+                Category = WeaponCategories.Axes,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 3,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
+                Rarity = 5,
+                Price = new Price(30),
+                DescriptionId = GetWeaponDescriptions()["Masakari"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 13,
+                Name = "Ono",
+                Category = WeaponCategories.Axes,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,2),
+                BaseDamage = 5,
+                Deadliness = 6,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "wargear").ToList(),
+                Rarity = 7,
+                Price = new Price(500),
+                DescriptionId = GetWeaponDescriptions()["Ono"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 14,
+                Name = "Club",
+                Category = WeaponCategories.BluntWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 5,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 1 or 6).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
+                Rarity = 1,
+                Price = new Price(10),
+                DescriptionId = GetWeaponDescriptions()["Club"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 15,
+                Name = "Hammer",
+                Category = WeaponCategories.BluntWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 5,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 1 or 7).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
+                Rarity = 4,
+                Price = new Price(20),
+                DescriptionId = GetWeaponDescriptions()["Hammer"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 16,
+                Name = "Kiseru",
+                Category = WeaponCategories.BluntWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,0),
+                BaseDamage = 2,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "concealable" or "mundane").ToList(),
+                Rarity = 5,
+                Price = new Price(100),
+                DescriptionId = GetWeaponDescriptions()["Kiseru"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 17,
+                Name = "Ōtsuchi",
+                Category = WeaponCategories.BluntWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,1),
+                BaseDamage = 8,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "cumbersome" or "mundane").ToList(),
+                Rarity = 8,
+                Price = new Price(3000),
+                DescriptionId = GetWeaponDescriptions()["Ōtsuchi"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 18,
+                Name = "Tetsubō",
+                Category = WeaponCategories.BluntWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,2),
+                BaseDamage = 7,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "cumbersome" or "mundane" or "wargear").ToList(),
+                Rarity = 5,
+                Price = new Price(2000),
+                DescriptionId = GetWeaponDescriptions()["Tetsubō"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 19,
+                Name = "Jitte",
+                Category = WeaponCategories.HandWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,0),
+                BaseDamage = 3,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable" or "snaring").ToList(),
+                Rarity = 5,
+                Price = new Price(10),
+                DescriptionId = GetWeaponDescriptions()["Jitte"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 20,
+                Name = "Knife",
+                Category = WeaponCategories.HandWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,0),
+                BaseDamage = 2,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable" or "mundane" or "razor-edged").ToList(),
+                Rarity = 5,
+                Price = new Price(100),
+                DescriptionId = GetWeaponDescriptions()["Knife"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 21,
+                Name = "Nunchaku",
+                Category = WeaponCategories.HandWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 4,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 1 or 10).ToList(),
+                Qualities = new List<ItemQualityModel>(),
+                Rarity = 6,
+                Price = new Price(100),
+                DescriptionId = GetWeaponDescriptions()["Nunchaku"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 22,
+                Name = "Tessen",
+                Category = WeaponCategories.HandWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 4,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "ceremonial" or "concealable").ToList(),
+                Rarity = 7,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Tessen"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 22,
+                Name = "Bisentō",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(2,2),
+                BaseDamage = 5,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 2 or 7).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "cumbersome" or "durable" or "wargear").ToList(),
+                Rarity = 8,
+                Price = new Price(1500),
+                DescriptionId = GetWeaponDescriptions()["Bisentō"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 23,
+                Name = "Bō",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(1,2),
+                BaseDamage = 6,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "mundane").ToList(),
+                Rarity = 2,
+                Price = new Price(20),
+                DescriptionId = GetWeaponDescriptions()["Bō"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 24,
+                Name = "Ji",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(2,2),
+                BaseDamage = 5,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "snaring" or "wargear").ToList(),
+                Rarity = 6,
+                Price = new Price(700),
+                DescriptionId = GetWeaponDescriptions()["Ji"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 25,
+                Name = "Naginata",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(2,2),
+                BaseDamage = 6,
+                Deadliness = 6,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "cumbersome" or "razor-edged" or "wargear").ToList(),
+                Rarity = 8,
+                Price = new Price(1000),
+                DescriptionId = GetWeaponDescriptions()["Naginata"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 26,
+                Name = "Trident",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(2,2),
+                BaseDamage = 4,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "snaring" or "wargear").ToList(),
+                Rarity = 7,
+                Price = new Price(1000),
+                DescriptionId = GetWeaponDescriptions()["Trident"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 27,
+                Name = "Yari",
+                Category = WeaponCategories.Polearms,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(2,2),
+                BaseDamage = 5,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "wargear").ToList(),
+                Rarity = 3,
+                Price = new Price(500),
+                DescriptionId = GetWeaponDescriptions()["Yari"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 28,
+                Name = "Daikyū",
+                Category = WeaponCategories.Bows,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
+                Range = new Ranges(3,5),
+                BaseDamage = 6,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "wargear").ToList(),
+                Rarity = 6,
+                Price = new Price(600),
+                DescriptionId = GetWeaponDescriptions()["Daikyū"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 28,
+                Name = "Horsebow",
+                Category = WeaponCategories.Bows,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
+                Range = new Ranges(2,4),
+                BaseDamage = 4,
+                Deadliness = 5,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "wargear").ToList(),
+                Rarity = 4,
+                Price = new Price(600),
+                DescriptionId = GetWeaponDescriptions()["Horsebow"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 29,
+                Name = "Yumi",
+                Category = WeaponCategories.Bows,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
+                Range = new Ranges(2,5),
+                BaseDamage = 5,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = new List<ItemQualityModel>(),
+                Rarity = 3,
+                Price = new Price(300),
+                DescriptionId = GetWeaponDescriptions()["Yumi"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 29,
+                Name = "Oyumi",
+                Category = WeaponCategories.Crossbows,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
+                Range = new Ranges(2,5),
+                BaseDamage = 7,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "prepare" or "wargear").ToList(),
+                Rarity = 8,
+                Price = new Price(400),
+                DescriptionId = GetWeaponDescriptions()["Oyumi"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 30,
+                Name = "Blowgun",
+                Category = WeaponCategories.SpecialistWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
+                Range = new Ranges(2,3),
+                BaseDamage = 1,
+                Deadliness = 2,
+                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable").ToList(),
+                Rarity = 7,
+                Price = new Price(50),
+                DescriptionId = GetWeaponDescriptions()["Blowgun"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 31,
+                Name = "Kama",
+                Category = WeaponCategories.SpecialistWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0,1),
+                BaseDamage = 3,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable").ToList(),
+                Rarity = 4,
+                Price = new Price(100),
+                DescriptionId = GetWeaponDescriptions()["Kama"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 32,
+                Name = "Kusari-Gama",
+                Category = WeaponCategories.SpecialistWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0, 0),
+                BaseDamage = 3,
+                Deadliness = 3,
+                Grips = GetGrips().Where(g => g.Id is 1 or 11).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable" or "snaring" or "wargear").ToList(),
+                Rarity = 6,
+                Price = new Price(500),
+                DescriptionId = GetWeaponDescriptions()["Kusari-Gama"].Id
+            },
+            new WeaponModel()
+            {
+                Id = 32,
+                Name = "Shuriken",
+                Category = WeaponCategories.SpecialistWeapons,
+                Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
+                Range = new Ranges(0, 0),
+                BaseDamage = 2,
+                Deadliness = 4,
+                Grips = GetGrips().Where(g => g.Id is 3 or 4).ToList(),
+                Qualities = GetItemQualities()
+                    .Where(q => q.Name.ToLower() is "concealable").ToList(),
+                Rarity = 6,
+                Price = new Price(100),
+                DescriptionId = GetWeaponDescriptions()["Shuriken"].Id
+            }
+        };
+        
         private Dictionary<string, LongText> GetSkillGroupDescriptions() => new Dictionary<string, LongText>()
         {
             {
@@ -1315,5 +2277,7 @@ namespace LOT5RDB.Data.Configuration
                 Id = 16, Name = "Wargear", DescriptionId = ItemQualitiesDescriptions["Unholy"].Id 
             }
         };
+        
+         
     }
 }

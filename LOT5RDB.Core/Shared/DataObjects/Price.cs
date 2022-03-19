@@ -14,9 +14,9 @@ namespace LOT5RDB.Core.Shared.DataObjects
         }
         public int Amount { get; set; } = 0;
         public int Zini => Amount - (Koku * 100) - (Bu * 10);
-        public int Bu => (Amount - (Koku * 100)) % 10;
+        public int Bu => (Amount - (Koku * 100)) / 10;
 
-        public int Koku => Amount % 100;
+        public int Koku => Amount / 100;
 
         public override string ToString()
         {

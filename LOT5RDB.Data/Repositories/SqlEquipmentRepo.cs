@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LOT5RDB.Core.Equipment.DataObjects;
+﻿using LOT5RD.Equipment.Interfaces;
+using LOT5RD.Equipment.Models;
 using LOT5RDB.Data.DBContexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,28 +14,28 @@ namespace LOT5RDB.Data.Repositories
 
         public EquipmentDbContext EquipmentDbContext { get; }
 
-        public List<Weapon> GetAllWeapons()
+        public List<WeaponModel> GetAllWeapons()
         {
             return EquipmentDbContext.Weapons.ToList();
         }
 
-        public List<Weapon> SearchWeaponByName(string searchString)
+        public List<WeaponModel> SearchWeaponByName(string searchString)
         {
             return EquipmentDbContext.Weapons.Where(w => w.Name.ToLower().StartsWith(searchString.ToLower())).ToList();
         }
 
-        public Weapon GetWeaponById(int id)
+        public WeaponModel GetWeaponById(int id)
         {
-            return EquipmentDbContext.Weapons.Find(id) ?? new Weapon();
+            return EquipmentDbContext.Weapons.Find(id) ?? new WeaponModel();
         }
 
-        public Weapon AddWeapon(Weapon weapon)
+        public WeaponModel AddWeapon(WeaponModel weapon)
         {
             EquipmentDbContext.Weapons.Add(weapon);
             return weapon;
         }
 
-        public Weapon UpdateWeapon(Weapon weapon)
+        public WeaponModel UpdateWeapon(WeaponModel weapon)
         {
             var entity = EquipmentDbContext.Weapons.Attach(weapon);
             entity.State = EntityState.Modified;
@@ -57,7 +53,7 @@ namespace LOT5RDB.Data.Repositories
             return 0;
         }
 
-        public int Commit()
+        public int SaveChanges()
         {
             return EquipmentDbContext.SaveChanges();
         }

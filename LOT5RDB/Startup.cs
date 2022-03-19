@@ -1,4 +1,4 @@
-﻿using LOT5RDB.Core.Equipment.DataObjects;
+﻿using LOT5RD.Equipment.Interfaces;
 using LOT5RDB.Data.DBContexts;
 using LOT5RDB.Data.Repositories;
 using Microsoft.EntityFrameworkCore;

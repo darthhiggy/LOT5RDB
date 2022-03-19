@@ -1,5 +1,6 @@
 ﻿using LOT5RD.Equipment.Models;
 using LOT5RD.Skills.Models;
+using LOT5RDB.Data.Configuration;
 using LOT5RDB.Data.Configuration.Equipment;
 using LOT5RDB.Data.Configuration.Skills;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,6 @@ namespace LOT5RDB.Data.DBContexts
     {
         public DbSet<WeaponModel> Weapons { get; set; }
         public DbSet<ItemQualityModel> ItemQualities { get; set; }
-        public DbSet<Grip> Grips { get; set; }
         public DbSet<SkillModel> Skills { get; set; }
         public DbSet<SkillGroupModel> SkillGroups { get; set; }
 
@@ -26,9 +26,11 @@ namespace LOT5RDB.Data.DBContexts
         {
             modelBuilder.ApplyConfiguration(new SkillGroupConfiguration());
             modelBuilder.ApplyConfiguration(new SkillConfiguration());
-            modelBuilder.ApplyConfiguration(new GripConfiguration());
             modelBuilder.ApplyConfiguration(new ItemQualityConfiguration());
             modelBuilder.ApplyConfiguration(new WeaponConfiguration());
+            
+            // seeding data needs to happen at the end of all other configuration
+            modelBuilder.GetSqlDataSeeds();
         }
     }
 }

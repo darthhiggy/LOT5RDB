@@ -2,5 +2,5 @@
 
 public interface IRepository
 {
-    public int Commit();
+    public int SaveChanges();
 }
