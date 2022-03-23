@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LOT5RDB.Core.Shared.DataObjects
+namespace LOT5RDB.Core.Shared.DataObjects;
+
+public enum WeaponCategories
 {
-    public enum WeaponCategories
-    {
-        Uncategorised,
-        Sword,
-        Axes,
-        BluntWeapons,
-        HandWeapons,
-        Polearms,
-        Bows,
-        Crossbows,
-        SpecialistWeapons
-    }
+    Uncategorised,
+    Sword,
+    Axes,
+    BluntWeapons,
+    HandWeapons,
+    Polearms,
+    Bows,
+    Crossbows,
+    SpecialistWeapons
 }

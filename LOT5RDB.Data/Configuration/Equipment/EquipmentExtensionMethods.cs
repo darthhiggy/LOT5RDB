@@ -1,4 +1,4 @@
-﻿using LOT5RD.Equipment.Models;
+﻿using LOT5RDB.Equipment.Models;
 using LOT5RDB.Core.Shared.DataObjects;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +9,7 @@ public static class EquipmentExtensionMethods
     public static ModelBuilder SqlEquipmentSeedData(this ModelBuilder modelBuilder)
     {
         var dataSeeder = new DataSeeds();
-        
+
         return modelBuilder.Entity<WeaponModel>(e => e.HasData(dataSeeder.GetWeapons()));
     }
 
@@ -19,5 +19,5 @@ public static class EquipmentExtensionMethods
 
         return modelBuilder.Entity<LongText>(e => e.HasData(dataSeeder.SkillDescriptions.Values));
     }
-    
+
 }

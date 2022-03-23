@@ -1,26 +1,26 @@
-﻿@page
-@model LOT5RDB.Pages.Equipment.ListModel
-@{
-}
-
-<h1>Equipment</h1>
-
-<h2>Weapons</h2>
-<form method="get">
-    <div class="form-group">
-        <div class="input-group">
-            <input type="search" class="form-control" asp-for="WeaponSearchTerm" />
-            <span class="input-group-append">
-                <button class="btn btn-outline-dark">
-                    Search
-                </button>
-            </span>
-        </div>
-    </div>
-</form>
-
-@foreach(var weapon in Model.Weapons)
-{
-    <partial name="Views/WeaponCard" model="weapon"/>
-    <br />
-}
+﻿@* @page *@
+@* @model LOT5RDB.Equipment.Models.WeaponModels.WeaponListModel *@
+@* @{ *@
+@* } *@
+@* *@
+@* <h1>Equipment</h1> *@
+@* *@
+@* <h2>Weapons</h2> *@
+@* <form method="get"> *@
+@*     <div class="form-group"> *@
+@*         <div class="input-group"> *@
+@*             <input type="search" class="form-control" asp-for="WeaponSearchTerm"/> *@
+@*             <span class="input-group-append"> *@
+@*                 <button class="btn btn-outline-dark"> *@
+@*                     Search *@
+@*                 </button> *@
+@*             </span> *@
+@*         </div> *@
+@*     </div> *@
+@* </form> *@
+@* *@
+@* @foreach(var weapon in Model.Weapons) *@
+@* { *@
+@*     <partial name="Views/WeaponCard" model="weapon"/> *@
+@*     <br/> *@
+@* } *@

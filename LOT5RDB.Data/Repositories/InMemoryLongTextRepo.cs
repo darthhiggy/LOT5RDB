@@ -7,7 +7,7 @@ namespace LOT5RDB.Data.Repositories;
 public class InMemoryLongTextRepo : ILongTextRepo
 {
     public List<LongText> LongTexts { get; set; }
-    
+
     public InMemoryLongTextRepo()
     {
         var dataSeeds = new DataSeeds();
@@ -17,22 +17,22 @@ public class InMemoryLongTextRepo : ILongTextRepo
             .Concat(dataSeeds.SkillGroupDescriptions.Values)
             .ToList();
     }
-    public LongText GetLongTextById(Guid id) => LongTexts.First(e => e.Id == id);
-    
+    public LongText GetLongTextById(Guid id)
+    {
+        return LongTexts.First(e => e.Id == id);
+    }
+
     public LongText AddLongText(LongText longText)
     {
         longText.Id = Guid.NewGuid();
         LongTexts.Add(longText);
         return longText;
     }
-    
+
     public LongText UpdateLongText(LongText longText)
     {
         var text = LongTexts.First(e => e.Id == longText.Id);
-        if(text.Id == Guid.Empty)
-        {
-            return AddLongText(longText);
-        }
+        if(text.Id == Guid.Empty) return AddLongText(longText);
 
         text = longText;
         return text;

@@ -1,7 +1,7 @@
-﻿using LOT5RD.Equipment.Models;
+﻿using LOT5RDB.Equipment.Models;
 using LOT5RDB.Core.Shared.Interfaces;
 
-namespace LOT5RD.Equipment.Interfaces;
+namespace LOT5RDB.Equipment.Interfaces;
 
 public interface IEquipmentRepository : IRepository
 {

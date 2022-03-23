@@ -1,4 +1,4 @@
-﻿using LOT5RD.Skills.Models;
+﻿using LOT5RDB.Skills.Models;
 using LOT5RDB.Core.Shared.DataObjects;
 using Microsoft.EntityFrameworkCore;
 

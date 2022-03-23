@@ -4,15 +4,16 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>LOT5RD.Equipment</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LOT5RD.Skills\LOT5RD.Skills.csproj" />
-      <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj" />
+        <ProjectReference Include="..\LOT5RDB.Skills\LOT5RDB.Skills.csproj"/>
+        <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
     </ItemGroup>
 
 </Project>

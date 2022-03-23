@@ -1,22 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="6.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj" />
-    <ProjectReference Include="..\LOT5RDB.Data\LOT5RDB.Data.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj" />
+        <ProjectReference Include="..\LOT5RDB.Data\LOT5RDB.Data.csproj" />
+    </ItemGroup>
 
 </Project>

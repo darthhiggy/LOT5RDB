@@ -1,24 +1,25 @@
-﻿using LOT5RD.Equipment.Models;
-using LOT5RD.Skills.Models;
+﻿using LOT5RDB.Equipment.Models;
+using LOT5RDB.Skills.Models;
 using LOT5RDB.Core.Shared.DataObjects;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
-namespace LOT5RDB.Data.Configuration
+namespace LOT5RDB.Data.Configuration;
+
+public class DataSeeds
 {
-    public class DataSeeds
+    public Dictionary<string, LongText> SkillGroupDescriptions { get; set; }
+    public Dictionary<string, LongText> SkillDescriptions { get; set; }
+    public Dictionary<string, LongText> ItemQualitiesDescriptions { get; set; }
+    public Dictionary<string, LongText> WeaponDescriptions { get; set; }
+    public DataSeeds()
     {
-        public Dictionary<string, LongText> SkillGroupDescriptions { get; set; }
-        public Dictionary<string, LongText> SkillDescriptions { get; set; }
-        public Dictionary<string, LongText> ItemQualitiesDescriptions { get; set; }
-        public Dictionary<string, LongText> WeaponDescriptions { get; set; }
-        public DataSeeds()
-        {
-            SkillGroupDescriptions = GetSkillGroupDescriptions();
-            SkillDescriptions = GetSkillDescriptions();
-            ItemQualitiesDescriptions = GetItemQualitiesDescription();
-            WeaponDescriptions = GetWeaponDescriptions();
-        }
-        private Dictionary<string, LongText> GetWeaponDescriptions() => new Dictionary<string, LongText>()
+        SkillGroupDescriptions = GetSkillGroupDescriptions();
+        SkillDescriptions = GetSkillDescriptions();
+        ItemQualitiesDescriptions = GetItemQualitiesDescription();
+        WeaponDescriptions = GetWeaponDescriptions();
+    }
+    private Dictionary<string, LongText> GetWeaponDescriptions()
+    {
+        return new Dictionary<string, LongText>
         {
             {
                 "Boken",
@@ -524,520 +525,803 @@ namespace LOT5RDB.Data.Configuration
                 }
             }
         };
+    }
 
-        public List<WeaponModel> GetWeapons() => new List<WeaponModel>()
+    public List<WeaponModel> GetWeapons()
+    {
+        return new List<WeaponModel>()
         {
-            new WeaponModel()
+            new()
             {
                 Id = 1,
                 Name = "Bokken",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 3,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 1 or 7).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Damage +2"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower().StartsWith("mundane")).ToList(),
                 Rarity = 3,
                 Price = new Price(10),
                 DescriptionId = GetWeaponDescriptions()["Bokken"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 2,
                 Name = "Chokutō",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 4,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
                 Rarity = 7,
                 Price = new Price(2000),
                 DescriptionId = GetWeaponDescriptions()["Chokutō"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 3,
                 Name = "Dao",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 4,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = new List<ItemQualityModel>(),
                 Rarity = 6,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Dao"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 4,
                 Name = "Gao",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 4,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower().Equals("snaring")).ToList(),
                 Rarity = 7,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Gao"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 5,
                 Name = "Jian",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 4,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 1 or 8).ToList(),
-                Qualities = GetItemQualities().ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Deadliness +1"
+                    }
+                },
                 Rarity = 7,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Jian"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 6,
                 Name = "Katana",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 4,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Deadliness +2"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
                 Rarity = 7,
                 Price = new Price(2000),
                 DescriptionId = GetWeaponDescriptions()["Katana"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 7,
                 Name = "Nodachi",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,2),
+                Range = new Ranges(1, 2),
                 BaseDamage = 5,
                 Deadliness = 6,
-                Grips = GetGrips().Where(g => g.Id == 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
                 Rarity = 8,
                 Price = new Price(2000),
                 DescriptionId = GetWeaponDescriptions()["Nodachi"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 9,
                 Name = "Scimitar",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 4,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id == 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "durable" or "razor-edged").ToList(),
                 Rarity = 8,
                 Price = new Price(2000),
                 DescriptionId = GetWeaponDescriptions()["Scimitar"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 10,
                 Name = "Wakizashi",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 3,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Deadliness +2"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "ceremonial" or "razor-edged").ToList(),
                 Rarity = 7,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Wakizashi"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 11,
                 Name = "Zanbatō",
                 Category = WeaponCategories.Sword,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,2),
+                Range = new Ranges(1, 2),
                 BaseDamage = 6,
                 Deadliness = 7,
-                Grips = GetGrips().Where(g => g.Id == 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "cumbersome" or "wargear").ToList(),
                 Rarity = 8,
                 Price = new Price(4000),
                 DescriptionId = GetWeaponDescriptions()["Zanbatō"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 12,
                 Name = "Masakari",
                 Category = WeaponCategories.Axes,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 3,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Deadliness +2"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
                 Rarity = 5,
                 Price = new Price(30),
                 DescriptionId = GetWeaponDescriptions()["Masakari"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 13,
                 Name = "Ono",
                 Category = WeaponCategories.Axes,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,2),
+                Range = new Ranges(1, 2),
                 BaseDamage = 5,
                 Deadliness = 6,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "wargear").ToList(),
                 Rarity = 7,
                 Price = new Price(500),
                 DescriptionId = GetWeaponDescriptions()["Ono"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 14,
                 Name = "Club",
                 Category = WeaponCategories.BluntWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 5,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 1 or 6).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Damage +1"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
                 Rarity = 1,
                 Price = new Price(10),
                 DescriptionId = GetWeaponDescriptions()["Club"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 15,
                 Name = "Hammer",
                 Category = WeaponCategories.BluntWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 5,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 1 or 7).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Damage +2"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "mundane").ToList(),
                 Rarity = 4,
                 Price = new Price(20),
                 DescriptionId = GetWeaponDescriptions()["Hammer"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 16,
                 Name = "Kiseru",
                 Category = WeaponCategories.BluntWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,0),
+                Range = new Ranges(0, 0),
                 BaseDamage = 2,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "concealable" or "mundane").ToList(),
                 Rarity = 5,
                 Price = new Price(100),
                 DescriptionId = GetWeaponDescriptions()["Kiseru"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 17,
                 Name = "Ōtsuchi",
                 Category = WeaponCategories.BluntWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,1),
+                Range = new Ranges(1, 1),
                 BaseDamage = 8,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities().Where(q => q.Name.ToLower() is "cumbersome" or "mundane").ToList(),
                 Rarity = 8,
                 Price = new Price(3000),
                 DescriptionId = GetWeaponDescriptions()["Ōtsuchi"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 18,
                 Name = "Tetsubō",
                 Category = WeaponCategories.BluntWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,2),
+                Range = new Ranges(1, 2),
                 BaseDamage = 7,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "cumbersome" or "mundane" or "wargear").ToList(),
                 Rarity = 5,
                 Price = new Price(2000),
                 DescriptionId = GetWeaponDescriptions()["Tetsubō"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 19,
                 Name = "Jitte",
                 Category = WeaponCategories.HandWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,0),
+                Range = new Ranges(0, 0),
                 BaseDamage = 3,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable" or "snaring").ToList(),
                 Rarity = 5,
                 Price = new Price(10),
                 DescriptionId = GetWeaponDescriptions()["Jitte"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 20,
                 Name = "Knife",
                 Category = WeaponCategories.HandWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,0),
+                Range = new Ranges(0, 0),
                 BaseDamage = 2,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 1 or 9).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Deadliness +2"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable" or "mundane" or "razor-edged").ToList(),
                 Rarity = 5,
                 Price = new Price(100),
                 DescriptionId = GetWeaponDescriptions()["Knife"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 21,
                 Name = "Nunchaku",
                 Category = WeaponCategories.HandWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 4,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 1 or 10).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Snaring"
+                    }
+                },
                 Qualities = new List<ItemQualityModel>(),
                 Rarity = 6,
                 Price = new Price(100),
                 DescriptionId = GetWeaponDescriptions()["Nunchaku"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 22,
                 Name = "Tessen",
                 Category = WeaponCategories.HandWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 4,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "ceremonial" or "concealable").ToList(),
                 Rarity = 7,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Tessen"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 22,
                 Name = "Bisentō",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(2,2),
+                Range = new Ranges(2, 2),
                 BaseDamage = 5,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 2 or 7).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "Range 1"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Damage +2"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "cumbersome" or "durable" or "wargear").ToList(),
                 Rarity = 8,
                 Price = new Price(1500),
                 DescriptionId = GetWeaponDescriptions()["Bisentō"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 23,
                 Name = "Bō",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(1,2),
+                Range = new Ranges(1, 2),
                 BaseDamage = 6,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "mundane").ToList(),
                 Rarity = 2,
                 Price = new Price(20),
                 DescriptionId = GetWeaponDescriptions()["Bō"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 24,
                 Name = "Ji",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(2,2),
+                Range = new Ranges(2, 2),
                 BaseDamage = 5,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "snaring" or "wargear").ToList(),
                 Rarity = 6,
                 Price = new Price(700),
                 DescriptionId = GetWeaponDescriptions()["Ji"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 25,
                 Name = "Naginata",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(2,2),
+                Range = new Ranges(2, 2),
                 BaseDamage = 6,
                 Deadliness = 6,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "cumbersome" or "razor-edged" or "wargear").ToList(),
                 Rarity = 8,
                 Price = new Price(1000),
                 DescriptionId = GetWeaponDescriptions()["Naginata"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 26,
                 Name = "Trident",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(2,2),
+                Range = new Ranges(2, 2),
                 BaseDamage = 4,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "snaring" or "wargear").ToList(),
                 Rarity = 7,
                 Price = new Price(1000),
                 DescriptionId = GetWeaponDescriptions()["Trident"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 27,
                 Name = "Yari",
                 Category = WeaponCategories.Polearms,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(2,2),
+                Range = new Ranges(2, 2),
                 BaseDamage = 5,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "wargear").ToList(),
                 Rarity = 3,
                 Price = new Price(500),
                 DescriptionId = GetWeaponDescriptions()["Yari"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 28,
                 Name = "Daikyū",
                 Category = WeaponCategories.Bows,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
-                Range = new Ranges(3,5),
+                Range = new Ranges(3, 5),
                 BaseDamage = 6,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "wargear").ToList(),
                 Rarity = 6,
                 Price = new Price(600),
                 DescriptionId = GetWeaponDescriptions()["Daikyū"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 28,
                 Name = "Horsebow",
                 Category = WeaponCategories.Bows,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
-                Range = new Ranges(2,4),
+                Range = new Ranges(2, 4),
                 BaseDamage = 4,
                 Deadliness = 5,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "wargear").ToList(),
                 Rarity = 4,
                 Price = new Price(600),
                 DescriptionId = GetWeaponDescriptions()["Horsebow"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 29,
                 Name = "Yumi",
                 Category = WeaponCategories.Bows,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
-                Range = new Ranges(2,5),
+                Range = new Ranges(2, 5),
                 BaseDamage = 5,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = new List<ItemQualityModel>(),
                 Rarity = 3,
                 Price = new Price(300),
                 DescriptionId = GetWeaponDescriptions()["Yumi"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 29,
                 Name = "Oyumi",
                 Category = WeaponCategories.Crossbows,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
-                Range = new Ranges(2,5),
+                Range = new Ranges(2, 5),
                 BaseDamage = 7,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 5).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "prepare" or "wargear").ToList(),
                 Rarity = 8,
                 Price = new Price(400),
                 DescriptionId = GetWeaponDescriptions()["Oyumi"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 30,
                 Name = "Blowgun",
                 Category = WeaponCategories.SpecialistWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("ranged")) ?? new SkillModel(),
-                Range = new Ranges(2,3),
+                Range = new Ranges(2, 3),
                 BaseDamage = 1,
                 Deadliness = 2,
-                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable").ToList(),
                 Rarity = 7,
                 Price = new Price(50),
                 DescriptionId = GetWeaponDescriptions()["Blowgun"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 31,
                 Name = "Kama",
                 Category = WeaponCategories.SpecialistWeapons,
                 Skill = GetSkills().FirstOrDefault(s => s.Name.ToLower().StartsWith("melee")) ?? new SkillModel(),
-                Range = new Ranges(0,1),
+                Range = new Ranges(0, 1),
                 BaseDamage = 3,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 1).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable").ToList(),
                 Rarity = 4,
                 Price = new Price(100),
                 DescriptionId = GetWeaponDescriptions()["Kama"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 32,
                 Name = "Kusari-Gama",
@@ -1046,14 +1330,26 @@ namespace LOT5RDB.Data.Configuration
                 Range = new Ranges(0, 0),
                 BaseDamage = 3,
                 Deadliness = 3,
-                Grips = GetGrips().Where(g => g.Id is 1 or 11).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.TwoHanded,
+                        Bonus = "Range 2-3"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable" or "snaring" or "wargear").ToList(),
                 Rarity = 6,
                 Price = new Price(500),
                 DescriptionId = GetWeaponDescriptions()["Kusari-Gama"].Id
             },
-            new WeaponModel()
+            new()
             {
                 Id = 32,
                 Name = "Shuriken",
@@ -1062,7 +1358,21 @@ namespace LOT5RDB.Data.Configuration
                 Range = new Ranges(0, 0),
                 BaseDamage = 2,
                 Deadliness = 4,
-                Grips = GetGrips().Where(g => g.Id is 3 or 4).ToList(),
+                Grips = new List<Grip>()
+                {
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "-",
+                        ExtraDescription = "(stab or slash)"
+                    },
+                    new()
+                    {
+                        GripType = GripTypes.OneHanded,
+                        Bonus = "Martial Arts [Ranged], Range 1-3",
+                        ExtraDescription = "(thrown)"
+                    }
+                },
                 Qualities = GetItemQualities()
                     .Where(q => q.Name.ToLower() is "concealable").ToList(),
                 Rarity = 6,
@@ -1070,8 +1380,11 @@ namespace LOT5RDB.Data.Configuration
                 DescriptionId = GetWeaponDescriptions()["Shuriken"].Id
             }
         };
-        
-        private Dictionary<string, LongText> GetSkillGroupDescriptions() => new Dictionary<string, LongText>()
+    }
+
+    private Dictionary<string, LongText> GetSkillGroupDescriptions()
+    {
+        return new Dictionary<string, LongText>
         {
             {
                 "Artisan",
@@ -1147,31 +1460,37 @@ namespace LOT5RDB.Data.Configuration
                 }
             }
         };
-        
-        public List<SkillGroupModel> GetSkillGroups() => new List<SkillGroupModel>()
+    }
+
+    public List<SkillGroupModel> GetSkillGroups()
+    {
+        return new List<SkillGroupModel>()
         {
-            new SkillGroupModel()
+            new()
             {
                 Id = 1, Name = "Artisan", DescriptionId = SkillGroupDescriptions["Artisan"].Id
             },
-            new SkillGroupModel()
+            new()
             {
                 Id = 2, Name = "Martial", DescriptionId = SkillGroupDescriptions["Martial"].Id
             },
-            new SkillGroupModel()
+            new()
             {
                 Id = 3, Name = "Scholar", DescriptionId = SkillGroupDescriptions["Scholar"].Id
             },
-            new SkillGroupModel()
+            new()
             {
                 Id = 4, Name = "Social", DescriptionId = SkillGroupDescriptions["Social"].Id
             },
-            new SkillGroupModel()
+            new()
             {
-                Id = 5, Name = "Trade", DescriptionId = SkillGroupDescriptions["Trade"].Id 
+                Id = 5, Name = "Trade", DescriptionId = SkillGroupDescriptions["Trade"].Id
             }
         };
-        private Dictionary<string, LongText> GetSkillDescriptions() => new Dictionary<string, LongText>()
+    }
+    private Dictionary<string, LongText> GetSkillDescriptions()
+    {
+        return new Dictionary<string, LongText>
         {
             {
                 "Aesthetics", new LongText()
@@ -1723,171 +2042,174 @@ namespace LOT5RDB.Data.Configuration
                 }
             }
         };
+    }
 
-        public List<SkillModel> GetSkills() => new List<SkillModel>()
+    public List<SkillModel> GetSkills()
+    {
+        return new List<SkillModel>()
         {
-            new SkillModel()
+            new()
             {
                 Id = 1,
                 Name = "Aesthetics",
                 DescriptionId = SkillDescriptions["Aesthetics"].Id,
                 SkillGroupId = 1
             },
-            new SkillModel()
+            new()
             {
                 Id = 2,
                 Name = "Composition",
                 DescriptionId = SkillDescriptions["Composition"].Id,
                 SkillGroupId = 1
             },
-            new SkillModel()
+            new()
             {
                 Id = 3,
                 Name = "Design",
                 DescriptionId = SkillDescriptions["Design"].Id,
                 SkillGroupId = 1
             },
-            new SkillModel()
+            new()
             {
                 Id = 4,
                 Name = "Smithing",
                 DescriptionId = SkillDescriptions["Smithing"].Id,
                 SkillGroupId = 1
             },
-            new SkillModel()
+            new()
             {
                 Id = 5,
                 Name = "Command",
                 DescriptionId = SkillDescriptions["Command"].Id,
                 SkillGroupId = 4
             },
-            new SkillModel()
+            new()
             {
                 Id = 6,
                 Name = "Courtesy",
                 DescriptionId = SkillDescriptions["Courtesy"].Id,
                 SkillGroupId = 4
             },
-            new SkillModel()
+            new()
             {
                 Id = 7,
                 Name = "Games",
                 DescriptionId = SkillDescriptions["Games"].Id,
                 SkillGroupId = 4
             },
-            new SkillModel()
+            new()
             {
                 Id = 8,
                 Name = "Performance",
                 DescriptionId = SkillDescriptions["Performance"].Id,
                 SkillGroupId = 4
             },
-            new SkillModel()
+            new()
             {
                 Id = 9,
                 Name = "Culture",
                 DescriptionId = SkillDescriptions["Culture"].Id,
                 SkillGroupId = 3
             },
-            new SkillModel()
+            new()
             {
                 Id = 10,
                 Name = "Government",
                 DescriptionId = SkillDescriptions["Government"].Id,
                 SkillGroupId = 3
             },
-            new SkillModel()
+            new()
             {
                 Id = 11,
                 Name = "Medicine",
                 DescriptionId = SkillDescriptions["Medicine"].Id,
                 SkillGroupId = 3
             },
-            new SkillModel()
+            new()
             {
                 Id = 12,
                 Name = "Sentiment",
                 DescriptionId = SkillDescriptions["Sentiment"].Id,
                 SkillGroupId = 3
             },
-            new SkillModel()
+            new()
             {
                 Id = 13,
                 Name = "Theology",
                 DescriptionId = SkillDescriptions["Theology"].Id,
                 SkillGroupId = 3
             },
-            new SkillModel()
+            new()
             {
                 Id = 14,
                 Name = "Fitness",
                 DescriptionId = SkillDescriptions["Fitness"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 15,
                 Name = "Martial Arts [Melee]",
                 DescriptionId = SkillDescriptions["Martial Arts [Melee]"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 16,
                 Name = "Martial Arts [Ranged]",
                 DescriptionId = SkillDescriptions["Martial Arts [Ranged]"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 17,
                 Name = "Martial Arts [Unarmed]",
                 DescriptionId = SkillDescriptions["Martial Arts [Unarmed]"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 18,
                 Name = "Mediation",
                 DescriptionId = SkillDescriptions["Mediation"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 19,
                 Name = "Tactics",
                 DescriptionId = SkillDescriptions["Tactics"].Id,
                 SkillGroupId = 2
             },
-            new SkillModel()
+            new()
             {
                 Id = 20,
                 Name = "Commerce",
                 DescriptionId = SkillDescriptions["Commerce"].Id,
                 SkillGroupId = 5
             },
-            new SkillModel()
+            new()
             {
                 Id = 21,
                 Name = "Labor",
                 DescriptionId = SkillDescriptions["Labor"].Id,
                 SkillGroupId = 5
             },
-            new SkillModel()
+            new()
             {
                 Id = 22,
                 Name = "Seafaring",
                 DescriptionId = SkillDescriptions["Seafaring"].Id,
                 SkillGroupId = 5
             },
-            new SkillModel()
+            new()
             {
                 Id = 23,
                 Name = "Skulduggery",
                 DescriptionId = SkillDescriptions["Skulduggery"].Id,
                 SkillGroupId = 5
             },
-            new SkillModel()
+            new()
             {
                 Id = 24,
                 Name = "Survival",
@@ -1895,80 +2217,11 @@ namespace LOT5RDB.Data.Configuration
                 SkillGroupId = 5
             }
         };
+    }
 
-        public static List<Grip> GetGrips() => new List<Grip>()
-        {
-            new Grip()
-            {
-                Id = 1,
-                GripType = GripTypes.OneHanded,
-                Bonus = "-"
-            },
-            new Grip()
-            {
-                Id = 2,
-                GripType = GripTypes.OneHanded,
-                Bonus = "Range 1"
-            },
-            new Grip()
-            {
-                Id = 3,
-                GripType = GripTypes.OneHanded,
-                Bonus = "-",
-                ExtraDescription = "(stab or slash)"
-            },
-            new Grip()
-            {
-                Id = 4,
-                GripType = GripTypes.OneHanded,
-                Bonus = "Martial Arts [Ranged], Range 1-3",
-                ExtraDescription = "(thrown)"
-            },
-            new Grip()
-            {
-                Id = 5,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "-"
-            },
-            new Grip()
-            {
-                Id = 6,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Damage +1"
-            },
-            new Grip()
-            {
-                Id = 7,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Damage +2"
-            },
-            new Grip()
-            {
-                Id = 8,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Deadliness +1"
-            },
-            new Grip()
-            {
-                Id = 9,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Deadliness +2"
-            },
-            new Grip()
-            {
-                Id = 10,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Snaring"
-            },
-            new Grip()
-            {
-                Id = 11,
-                GripType = GripTypes.TwoHanded,
-                Bonus = "Range 2-3"
-            }
-        };
-
-        public Dictionary<string, LongText> GetItemQualitiesDescription() => new Dictionary<string, LongText>()
+    public Dictionary<string, LongText> GetItemQualitiesDescription()
+    {
+        return new Dictionary<string, LongText>
         {
             {
                 "Ceremonial", new LongText()
@@ -2209,75 +2462,78 @@ namespace LOT5RDB.Data.Configuration
                 }
             }
         };
+    }
 
-        public List<ItemQualityModel> GetItemQualities() => new List<ItemQualityModel>()
+    public List<ItemQualityModel> GetItemQualities()
+    {
+        return new List<ItemQualityModel>()
         {
-            new ItemQualityModel()
+            new()
             {
-                Id = 1, Name = "Ceremonial", DescriptionId = ItemQualitiesDescriptions["Ceremonial"].Id 
+                Id = 1, Name = "Ceremonial", DescriptionId = ItemQualitiesDescriptions["Ceremonial"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 2, Name = "Concealable", DescriptionId = ItemQualitiesDescriptions["Concealable"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 3, Name = "Cumbersome", DescriptionId = ItemQualitiesDescriptions["Cumbersome"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 4, Name = "Damaged", DescriptionId = ItemQualitiesDescriptions["Damaged"].Id 
+                Id = 4, Name = "Damaged", DescriptionId = ItemQualitiesDescriptions["Damaged"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 5, Name = "Destroyed", DescriptionId = ItemQualitiesDescriptions["Destroyed"].Id 
+                Id = 5, Name = "Destroyed", DescriptionId = ItemQualitiesDescriptions["Destroyed"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 6, Name = "Durable", DescriptionId = ItemQualitiesDescriptions["Durable"].Id 
+                Id = 6, Name = "Durable", DescriptionId = ItemQualitiesDescriptions["Durable"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 7, Name = "Forbidden", DescriptionId = ItemQualitiesDescriptions["Forbidden"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 8, Name = "Mundane", DescriptionId = ItemQualitiesDescriptions["Mundane"].Id 
+                Id = 8, Name = "Mundane", DescriptionId = ItemQualitiesDescriptions["Mundane"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 9, Name = "Prepare", DescriptionId = ItemQualitiesDescriptions["Prepare"].Id 
+                Id = 9, Name = "Prepare", DescriptionId = ItemQualitiesDescriptions["Prepare"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 10, Name = "Razor-Edged", DescriptionId = ItemQualitiesDescriptions["Razor-Edge"].Id 
+                Id = 10, Name = "Razor-Edged", DescriptionId = ItemQualitiesDescriptions["Razor-Edge"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 11, Name = "Resplendent", DescriptionId = ItemQualitiesDescriptions["Resplendent"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 12, Name = "Sacred", DescriptionId = ItemQualitiesDescriptions["Sacred"].Id
             },
-            new ItemQualityModel()
+            new()
             {
                 Id = 13, Name = "Snaring", DescriptionId = ItemQualitiesDescriptions["Snaring"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 14, Name = "Subtle", DescriptionId = ItemQualitiesDescriptions["Subtle"].Id 
+                Id = 14, Name = "Subtle", DescriptionId = ItemQualitiesDescriptions["Subtle"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 15, Name = "Unholy", DescriptionId = ItemQualitiesDescriptions["Unholy"].Id  
+                Id = 15, Name = "Unholy", DescriptionId = ItemQualitiesDescriptions["Unholy"].Id
             },
-            new ItemQualityModel()
+            new()
             {
-                Id = 16, Name = "Wargear", DescriptionId = ItemQualitiesDescriptions["Unholy"].Id 
+                Id = 16, Name = "Wargear", DescriptionId = ItemQualitiesDescriptions["Unholy"].Id
             }
         };
-        
-         
     }
+
+
 }

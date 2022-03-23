@@ -1,10 +1,10 @@
-﻿namespace LOT5RD.Skills.Models;
+﻿namespace LOT5RDB.Skills.Models;
 
 public class SkillModel
 {
     public SkillModel()
     {
-        
+
     }
 
     public SkillModel(int id)
@@ -14,7 +14,7 @@ public class SkillModel
 
     public int Id { get; set; } = 0;
     public string Name { get; set; } = "";
-    public Guid DescriptionId { get; set; } = new Guid();
+    public Guid DescriptionId { get; set; } = new();
     public int SkillGroupId { get; set; } = 0;
-    public SkillGroupModel SkillGroup { get; set; } = new SkillGroupModel();
+    public SkillGroupModel SkillGroup { get; set; } = new();
 }

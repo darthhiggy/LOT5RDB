@@ -32,7 +32,6 @@ using LOT5RDB;
 
 //app.Run();
 
-Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
-{
+Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder => {
     webBuilder.UseStartup<Startup>();
 }).Build().Run();

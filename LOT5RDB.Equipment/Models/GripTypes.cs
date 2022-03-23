@@ -1,4 +1,4 @@
-﻿namespace LOT5RD.Equipment.Models;
+﻿namespace LOT5RDB.Equipment.Models;
 
 public enum GripTypes
 {
