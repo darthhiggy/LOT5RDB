@@ -1,0 +1,194 @@
+﻿[
+  {
+    "Id":1,
+    "Name":"Aesthetics",
+    "DescriptionId":"1879583a-b7bb-455d-93d6-b4fbee6078a2",
+    "SkillGroupId":1,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":2,
+    "Name":"Composition",
+    "DescriptionId":"d80bc5bf-4931-4fd1-857e-497eccdbf342",
+    "SkillGroupId":1,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":3,
+    "Name":"Design",
+    "DescriptionId":"17a19c61-26cb-433e-aa2e-64a366d31239",
+    "SkillGroupId":1,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":4,
+    "Name":"Smithing",
+    "DescriptionId":"923f8290-f0f3-4e6d-a2de-db55c18540d4",
+    "SkillGroupId":1,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":5,
+    "Name":"Command",
+    "DescriptionId":"7aa51fd4-3e68-452c-9d74-c2c451d9b1df",
+    "SkillGroupId":4,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":6,
+    "Name":"Courtesy",
+    "DescriptionId":"7b29a2b0-36ea-44be-961f-d77bac1418c1",
+    "SkillGroupId":4,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":7,
+    "Name":"Games",
+    "DescriptionId":"ea6a04a7-9e1c-4541-b220-5fd28475646f",
+    "SkillGroupId":4,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":8,
+    "Name":"Performance",
+    "DescriptionId":"aebc434f-6060-47ff-aae8-2455ad957fa0",
+    "SkillGroupId":4,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":9,
+    "Name":"Culture",
+    "DescriptionId":"b8e30628-b535-4c91-b168-ccccf49cee88",
+    "SkillGroupId":3,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":10,
+    "Name":"Government",
+    "DescriptionId":"62489655-9d8e-4f19-95ff-53abcdf51a56",
+    "SkillGroupId":3,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":11,
+    "Name":"Medicine",
+    "DescriptionId":"4a494aae-1dc9-49b9-9c88-2aeeed24584e",
+    "SkillGroupId":3,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":12,
+    "Name":"Sentiment",
+    "DescriptionId":"0882d9c1-323a-42b4-9225-9261b99658db",
+    "SkillGroupId":3,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":13,
+    "Name":"Theology",
+    "DescriptionId":"6d59586f-7b4e-497f-9db1-b2a403c021ce",
+    "SkillGroupId":3,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":14,
+    "Name":"Fitness",
+    "DescriptionId":"06ddcb2c-c011-4b2b-bed7-336258a71b26",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":15,
+    "Name":"Martial Arts [Melee]",
+    "DescriptionId":"9bf05308-4c5d-498c-9b83-441934b9879d",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":16,
+    "Name":"Martial Arts [Ranged]",
+    "DescriptionId":"bba94dda-3c39-48f0-b53d-9ba014a0e369",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":17,
+    "Name":"Martial Arts [Unarmed]",
+    "DescriptionId":"c7949ac1-bbc9-4108-8a10-9d10c046e441",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":18,
+    "Name":"Meditation",
+    "DescriptionId":"F03AA519-4193-4EE1-BD7D-63B469F7BCDA",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":19,
+    "Name":"Tactics",
+    "DescriptionId":"481e4264-f1e6-4112-9e88-bb669fc4fa3c",
+    "SkillGroupId":2,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":20,
+    "Name":"Commerce",
+    "DescriptionId":"d457ba6d-8f6c-4a4a-a0dd-f7d229ea7a00",
+    "SkillGroupId":5,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":21,
+    "Name":"Labor",
+    "DescriptionId":"E610BC1E-F62E-4238-90B3-AF3E86A14F2F",
+    "SkillGroupId":5,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":22,
+    "Name":"Seafaring",
+    "DescriptionId":"3c7caaa2-7d10-4f98-ab23-051d677d58c1",
+    "SkillGroupId":5,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":23,
+    "Name":"Skulduggery",
+    "DescriptionId":"faccaf45-a3cd-4c96-ae3e-9bb07a9c9c2d",
+    "SkillGroupId":5,
+    "SkillGroup":null,
+    "IsActive": true
+  },
+  {
+    "Id":24,
+    "Name":"Survival",
+    "DescriptionId":"1804A803-48A9-4F32-884F-E9E7787D75DD",
+    "SkillGroupId":5,
+    "SkillGroup":null,
+    "IsActive": true
+  }
+]

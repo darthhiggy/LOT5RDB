@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="6.0.3" />
@@ -24,13 +26,31 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\LOT5RDB.Equipment\LOT5RDB.Equipment.csproj" />
+        <ProjectReference Include="..\LOT5RDB.Equipment.Shared\LOT5RDB.Equipment.Shared.csproj" />
         <ProjectReference Include="..\LOT5RDB.Core\LOT5RDB.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Migrations" />
-        <Folder Include="Migrations\" />
+      <None Remove="Configuration\Skills\DataSeeds\SkillGroups.json" />
+      <None Remove="Configuration\Skills\DataSeeds\Skills.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="EquipmentDb\Configuration\Skills\DataSeeds\SkillGroups.json" />
+      <EmbeddedResource Include="EquipmentDb\Configuration\Skills\DataSeeds\Skills.json" />
+      <None Remove="EquipmentDb\Configuration\Equipment\DataSeeds\ItemQualities.json" />
+      <EmbeddedResource Include="EquipmentDb\Configuration\Equipment\DataSeeds\ItemQualities.json" />
+      <None Remove="EquipmentDb\Configuration\Equipment\DataSeeds\Weapons.json" />
+      <EmbeddedResource Include="EquipmentDb\Configuration\Equipment\DataSeeds\Weapons.json" />
+      <None Remove="EquipmentDb\Configuration\Equipment\DataSeeds\WeaponItemQualities.json" />
+      <EmbeddedResource Include="EquipmentDb\Configuration\Equipment\DataSeeds\WeaponItemQualities.json" />
+      <None Remove="DescriptionsDb\Configuration\DataSeeds\DescriptionSeeds.json" />
+      <EmbeddedResource Include="DescriptionsDb\Configuration\DataSeeds\DescriptionSeeds.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\DescriptionsDb" />
+      <Folder Include="Migrations\EquipmentDb" />
     </ItemGroup>
 
 </Project>

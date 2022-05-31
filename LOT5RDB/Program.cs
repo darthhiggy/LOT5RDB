@@ -1,37 +1,47 @@
-using LOT5RDB;
-//todo: Generated code, using startup class to do all this per how I learned it. Will come back around to this to see if I ultimately like it better
-//var builder = WebApplication.CreateBuilder(args);
-
-//// Add services to the container.
-//builder.Services.AddDbContext<EquipmentDbContext>(options =>
-//{
-//    options.UseSqlServer(Configuration.GetConnectionString("LOT5RDB"));
-//})
-//builder.Services.AddScoped<IEquipmentRepository, SqlEquipmentRepo>();
-//builder.Services.AddRazorPages();
+using LOT5RDB.Data.DescriptionsDb;
+using LOT5RDB.Data.EquipmentDb;
+using LOT5RDB.Data.ExtensionMethods;
+using LOT5RDB.Equipment.Server.ExtensionMethods;
+using LOT5RDB.Equipment.Shared.ExtensionMethods;
+using LOT5RDB.Skills.Server.ExtensionMethods;
+using LOT5RDB.Skills.Shared.ExtensionMethods;
+using Microsoft.EntityFrameworkCore;
 
 
-//var app = builder.Build();
+var builder = WebApplication.CreateBuilder(args);
 
-//// Configure the HTTP request pipeline.
-//if (!app.Environment.IsDevelopment())
-//{
-//    app.UseExceptionHandler("/Error");
-//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-//    app.UseHsts();
-//}
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
-//app.UseHttpsRedirection();
-//app.UseStaticFiles();
+builder.Services.AddDbContext<EquipmentDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LOT5RDB")));
+builder.Services.AddDbContext<DescriptionsDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DescriptionsDb")));
 
-//app.UseRouting();
+builder.Services.InjectRepos();
 
-//app.UseAuthorization();
+builder.Services.InjectEquipmentRequest()
+    .InjectEquipmentHandlers()
+    .InjectSkillRequest()
+    .InjectSkillHandlers();
 
-//app.MapRazorPages();
+var app = builder.Build();
 
-//app.Run();
+// Configure the HTTP request pipeline.
+if(!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder => {
-    webBuilder.UseStartup<Startup>();
-}).Build().Run();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+name: "default",
+pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();

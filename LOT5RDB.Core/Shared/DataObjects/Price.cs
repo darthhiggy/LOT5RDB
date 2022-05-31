@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LOT5RDB.Core.Shared.DataObjects;
+﻿namespace LOT5RDB.Core.Shared.DataObjects;
 
 public class Price
 {
@@ -12,7 +6,7 @@ public class Price
     {
         Amount = amount;
     }
-    public int Amount { get; set; } = 0;
+    public int Amount { get; set; }
     public int Zini => Amount - Koku * 100 - Bu * 10;
     public int Bu => (Amount - Koku * 100) / 10;
 

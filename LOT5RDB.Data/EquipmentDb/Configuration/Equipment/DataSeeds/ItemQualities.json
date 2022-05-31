@@ -1,0 +1,146 @@
+﻿[
+  {
+    "Id":1,
+    "Name":"Ceremonial",
+    "DescriptionId":"fc81b4aa-eb77-48d1-aa72-e6664b30a5bc",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":2,
+    "Name":"Concealable",
+    "DescriptionId":"dfd36c34-9c81-4e52-b0cf-354bb949cbc2",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":3,
+    "Name":"Cumbersome",
+    "DescriptionId":"89d3bcfd-2c6b-4477-9494-325e62b84575",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":4,
+    "Name":"Damaged",
+    "DescriptionId":"93ddcfac-65eb-4597-a7f0-21597d483715",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":5,
+    "Name":"Destroyed",
+    "DescriptionId":"6b101e42-cdaa-4f31-8bfd-25bd104c7d30",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":6,
+    "Name":"Durable",
+    "DescriptionId":"f677c10e-4f44-489d-93ff-32338d326b4f",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":7,
+    "Name":"Forbidden",
+    "DescriptionId":"b29bc7f7-1ed8-42b1-99e9-37e0c2cefda7",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":8,
+    "Name":"Mundane",
+    "DescriptionId":"a6aa065e-374f-41e3-a86a-004b18093c4e",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":9,
+    "Name":"Prepare",
+    "DescriptionId":"7c6be140-ec3a-4e92-9f72-95976aae917f",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":10,
+    "Name":"Razor-Edged",
+    "DescriptionId":"16bd58e5-32d8-4e38-a864-accb556e923d",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":11,
+    "Name":"Resplendent",
+    "DescriptionId":"28dd5718-b1cd-4217-9d1e-51a560bdb812",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":12,
+    "Name":"Sacred",
+    "DescriptionId":"6580f21f-4f76-4987-b1db-8482c17c4ce2",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":13,
+    "Name":"Snaring",
+    "DescriptionId":"2b44d64a-b5ef-4725-aceb-98b8f3584fdd",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":14,
+    "Name":"Subtle",
+    "DescriptionId":"c569f579-5097-49ad-8411-58692e36c642",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":15,
+    "Name":"Unholy",
+    "DescriptionId":"03861fad-00e7-4979-8f0f-b1c4e0559b93",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":16,
+    "Name":"Wargear",
+    "DescriptionId":"03861fad-00e7-4979-8f0f-b1c4e0559b93",
+    "Weapons":[
+
+    ],
+    "IsActive": true
+  }
+]

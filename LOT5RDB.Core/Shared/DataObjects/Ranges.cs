@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Newtonsoft.Json;
 
 namespace LOT5RDB.Core.Shared.DataObjects;
 
@@ -12,7 +13,8 @@ public class Ranges
 
     public int MinRange { get; set; }
     public int MaxRange { get; set; }
-
+    
+    [JsonConstructor]
     public Ranges(int minRange, int maxRange)
     {
         MinRange = minRange;

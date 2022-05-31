@@ -1,0 +1,47 @@
+﻿[
+  {
+    "Id":1,
+    "Name":"Artisan",
+    "DescriptionId":"03b6062e-7c0e-4ba0-93ab-f3b41c13261b",
+    "Skills":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":2,
+    "Name":"Martial",
+    "DescriptionId":"1f28aca2-2231-47cd-b8a9-fa487c3c2c4a",
+    "Skills":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":3,
+    "Name":"Scholar",
+    "DescriptionId":"574fea87-6fc0-488f-b452-22d4cbaf7784",
+    "Skills":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":4,
+    "Name":"Social",
+    "DescriptionId":"758a9a52-f869-49f7-87bd-4234e1018a27",
+    "Skills":[
+
+    ],
+    "IsActive": true
+  },
+  {
+    "Id":5,
+    "Name":"Trade",
+    "DescriptionId":"148939ba-86eb-4c5b-8df0-c230f8257589",
+    "Skills":[
+
+    ],
+    "IsActive": true
+  }
+]
